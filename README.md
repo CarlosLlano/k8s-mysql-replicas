@@ -23,13 +23,13 @@ Para ello, existe el software **percona xtradb cluster** (https://www.percona.co
 que es una solución para crear clusters de mysql, que garantiza la consistencia de los datos entre todas las replicas del cluster. 
 Esta solución tiene una imagen pública para docker (https://hub.docker.com/r/percona/percona-xtradb-cluster).
 
-A continuación se mostrarán los pasos para crear un cluster de mysql en kubernetes
+A continuación se mostrarán los pasos para crear un cluster de mysql en kubernetes.
 
 ## Arquitectura General
 
 ![captura de pantalla 2018-12-16 a la s 10 17 34 p m](https://user-images.githubusercontent.com/17281733/50064661-67c64700-0180-11e9-85b3-adfe728a9b2f.png)
 
-Para persistir los datos se usará un servidor NFS de IBM Cloud (File Storage - https://www.ibm.com/cloud/file-storage) el cual debe crearse
+Para persistir los datos se usará un servidor NFS de IBM Cloud (File Storage - https://www.ibm.com/cloud/file-storage), el cual debe crearse
 previamente.
 
 
@@ -38,6 +38,8 @@ previamente.
 ![pv](https://user-images.githubusercontent.com/17281733/50065379-3fd8e280-0184-11e9-8e11-b9691294a43e.png)
 
 **Persistent Volume**
+
+Reemplazar los valores de **server** y **path** con lo datos del File Storage propio:
 
 ```yml
 apiVersion: v1
@@ -121,7 +123,7 @@ kubectl apply -f 2.pvcs.yml
 
 ## 2. Creación del cluster de mysql
 
-**Creacion de la imagen**
+**Creación de la imagen**
 
 En la carpeta docker-pxc, ejecutar los siguientes comandos reemplazando *dockerhub-username* por el usuario de dockerhub propio:
 ```
