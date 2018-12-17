@@ -13,7 +13,7 @@ de datos.
 
 Mapear todas las carpetas de datos de las réplicas de msyql al mismo volumen no es posible ya que se obtienen errores como los siguientes:
 
-![captura de pantalla 2018-12-16 a la s 10 13 26 p m](https://user-images.githubusercontent.com/17281733/50064566-d8209880-017f-11e9-95e9-e41516c6c91f.png)
+![captura de pantalla 2018-12-16 a la s 11 10 20 p m](https://user-images.githubusercontent.com/17281733/50066098-df4ba480-0187-11e9-8284-ea2b0cdb2384.png)
 
 
 De estos errores se desprende que cada réplica de mysql debe tener su propia carpeta de datos para funcionar correctamente. 
