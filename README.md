@@ -1,4 +1,4 @@
-# Replicas de Mysql en Kubernetes
+# Réplicas de Mysql en Kubernetes
 
 ## Introducción
 
@@ -7,20 +7,20 @@ Cuando se crean aplicaciones basadas en contenedores, un aspecto muy importante 
 En el caso de un contenedor mysql, la solución es crear un volumen externo que almacene la información de la carpeta de datos de mysql 
 (/var/lib/mysql). De esta forma, independiente de lo que pase con el contenedor, los datos siempre serán persistentes.
 
-Esta solución es adecuada cuando se tiene solo una replica de un contenedor mysql. Pero ¿qué pasa cuando se quieren tener más replicas? 
+Esta solución es adecuada cuando se tiene solo una réplica de un contenedor mysql. Pero ¿qué pasa cuando se quieren tener más réplicas? 
 Por ejemplo, para una aplicación de alta demanda y con gran número de transacciones, donde interesa hacer balanceo de carga para la base 
 de datos.
 
-Mapear todas las carpetas de datos de las replicas de msyql al mismo volumen no es posible ya que se obtienen errores como los siguientes:
+Mapear todas las carpetas de datos de las réplicas de msyql al mismo volumen no es posible ya que se obtienen errores como los siguientes:
 
 ![captura de pantalla 2018-12-16 a la s 10 13 26 p m](https://user-images.githubusercontent.com/17281733/50064566-d8209880-017f-11e9-95e9-e41516c6c91f.png)
 
 
-De estos errores se desprende que cada replica de mysql debe tener su propia carpeta de datos para funcionar correctamente. 
-¿Cómo lograr que cada replica tenga los mismos datos y que todo cambio en una replica se replique en todas las demás? 
+De estos errores se desprende que cada réplica de mysql debe tener su propia carpeta de datos para funcionar correctamente. 
+¿Cómo lograr que cada réplica tenga los mismos datos y que todo cambio en una réplica se replique en todas las demás? 
 
 Para ello, existe el software **percona xtradb cluster** (https://www.percona.com/software/mysql-database/percona-xtradb-cluster) 
-que es una solución para crear clusters de mysql, que garantiza la consistencia de los datos entre todas las replicas del cluster. 
+que es una solución para crear clusters de mysql, que garantiza la consistencia de los datos entre todas las réplicas del cluster. 
 Esta solución tiene una imagen pública para docker (https://hub.docker.com/r/percona/percona-xtradb-cluster).
 
 A continuación se mostrarán los pasos para crear un cluster de mysql en kubernetes.
